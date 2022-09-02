@@ -64,7 +64,7 @@ def failedResponce(responce :str, requiredResponce :list, caller: str = None):
         counterValue = counter()
         print(Fore.BLUE + f"Your on attempt number ->> {counterValue} of {attemptAllowance}\n ")
 
-        if counterValue <= attemptAllowance:
+        if counterValue < attemptAllowance:
             item = random.randint(0,len(failResponce) - 1) # Get a random item from the list as a responce to user not choosing correctly
             print(Fore.BLUE + failResponce[item])
 
@@ -75,7 +75,7 @@ def failedResponce(responce :str, requiredResponce :list, caller: str = None):
             elif "askToGitpull" in caller:
                 askToGitpull()
 
-        elif counterValue == attemptAllowance + 1:
+        elif counterValue == attemptAllowance :
             counter(value=0)
             print(Fore.RED + "I'm not playing your stupid games any more")
 
@@ -88,7 +88,7 @@ def counter(value :int = None):
     """
 
     global attemptCount
-    if value:
+    if value == 0:
         attemptCount = value
         return attemptCount
     else:
