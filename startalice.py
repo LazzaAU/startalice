@@ -1,8 +1,7 @@
 import subprocess
 import os
 import random
-import colorama
-from colorama import Fore, init
+from colorama import Fore
 
 """
 This script is used for updating Alice and/or starting alice with or without logging and/or in manual mode or permanently
@@ -20,10 +19,7 @@ Script modifications -
 1. Change alicePath variable to your ProjectAlice path. default is /home/pi/ProjectAlice see line 28
 2. If you want to run Alice on rc3 branch, comment out  ``` branch = 'master' ``` and un comment ``` # branch = '1.0.0-rc3' ```
     (see lines 30 and 31 / 32 below)
-    
 """
-
-init()
 
 alicePath = '/home/pi/ProjectAlice' # Add the Path to Alice.
 
@@ -58,7 +54,7 @@ def askAQuestion(question: str, requiredResponce: list, caller = None):
 
 def failedResponce(responce :str, requiredResponce :list, caller: str = None):
     """
-    Checks if it's a incorrect input from the user and displays notification apropriately
+    Checks if it's an incorrect input from the user and displays notification apropriately
     :param responce: What the user selected
     :param requiredResponce: The expected responces
     :param caller: What method called the Question
@@ -82,7 +78,6 @@ def failedResponce(responce :str, requiredResponce :list, caller: str = None):
         elif counterValue == attemptAllowance + 1:
             counter(value=0)
             print(Fore.RED + "I'm not playing your stupid games any more")
-            return
 
 
 def counter(value :int = None):
@@ -133,7 +128,7 @@ def gitpull():
 
 def addlogging():
     """
-    Check if user wants to add logging to Alice (used for auto bug reports on git hub"
+    Check if user wants to add logging to Alice (used for auto bug reports on GitHub)
     :return:
     """
     print('.')
@@ -163,6 +158,5 @@ def startAlice():
         subprocess.run(['sudo', 'systemctl', 'restart', 'ProjectAlice'])
     elif startmethod == "s":
         print(Fore.RED + "I'm NOT going to start Alice... skipping")
-        return
 
 askToGitpull()
