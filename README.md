@@ -5,6 +5,8 @@
 
 It's just a personal script i created cause i was bored :) but feel free to use it if you feel the urge
 
+NOTE: The correct way is to run [ProjectAlices CLI tool](https://pypi.org/project/projectalice-cli/). As i like to play with skill making for Alice i 
+spend more time on the actual Alice Pi than remotely where the CLI tool is used. therefore, this just suits me :)
 # Setup -
 
 
@@ -19,6 +21,6 @@ a. Install colorama using ``` pip3 install colorama ``` to the PI Alice is insta
 # Script modifications -
 1. Change alicePath variable to your ProjectAlice path. default is /home/pi/ProjectAlice see line 28
 2. If you want to run Alice on rc3 branch, comment out  ``` branch = 'master' ``` and un comment ``` # branch = '1.0.0-rc3' ```
-    (see lines 30 and 31 / 32 below)
+    (see lines 30 and 31 / 32 in the code)
     
 I'm well aware i could of done this in a few lines of bash code. However, like i said... i was bored and wanted something to code. Feel free to use it :)
