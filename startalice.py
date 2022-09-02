@@ -41,7 +41,7 @@ failResponce = ["Incorrect option, Try again",
                 "Ahhhh, you just suffered from fat finger syndrome and hit the wrong key. Try again",
                 "Re read the question and choose the correct answer",
                 "Time you went to specsavers, try again",
-                "I see the dslyexia has kickied in again. Let's try that again"
+                "I see the dslyexia has kicked in again. Let's try that again"
                 ]
 
 validResponces = ["y", "n", "m", "p", "s"] # List of the only acceptable responces
