@@ -1,7 +1,7 @@
 ## This script is used for 
-- updating Alice and/or
-- starting alice with or without logging and/or
-- starting in manual mode or permanently (via the alice service)
+- Updating Alice and/or
+- Starting alice with or without logging and/or
+- Starting in manual mode or permanently (via the alice service)
 
 It's just a personal script I created because I was bored :) but feel free to use it if you feel the urge.
 
