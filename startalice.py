@@ -132,20 +132,6 @@ def gitpull():
     subprocess.run(['git', 'pull'])
     startAlice()
 
-def addlogging():
-    """
-    Check if user wants to add logging to Alice (used for auto bug reports on GitHub)
-    :return:
-    """
-    print('.')
-    addLogging = askAQuestion(' Do you want to add logging ? (y/n)', requiredResponce=["y", "n"], caller="addlogging")
-
-    if addLogging == 'y':
-        subprocess.run(['touch','~/ProjectAlice/alice.bugreport'])
-    elif addLogging == 'n':
-        print(Fore.CYAN + 'Ok, logging disabled')
-
-
 def startAlice():
     """
     Checks if user wants to start alice in manual or permanent state. IE: run the service or run it manually
@@ -164,5 +150,18 @@ def startAlice():
         subprocess.run(['sudo', 'systemctl', 'restart', 'ProjectAlice'])
     elif startmethod == "s":
         print(Fore.RED + "I'm NOT going to start Alice... skipping")
+
+def addlogging():
+    """
+    Check if user wants to add logging to Alice (used for auto bug reports on GitHub)
+    :return:
+    """
+    print('.')
+    addLogging = askAQuestion(' Do you want to add logging ? (y/n)', requiredResponce=["y", "n"], caller="addlogging")
+
+    if addLogging == 'y':
+        subprocess.run(['touch','~/ProjectAlice/alice.bugreport'])
+    elif addLogging == 'n':
+        print(Fore.CYAN + 'Ok, logging disabled')
 
 askToGitpull()
