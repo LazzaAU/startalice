@@ -99,6 +99,7 @@ def counter(value :int = None):
         return attemptCount
 
 def askToGitpull():
+    prepareAlice()
     gitpullAnswer = askAQuestion(question='Do you want to do a Git pull ? (y/n)', requiredResponce=["y", "n"], caller="askToGitpull")
 
     if gitpullAnswer == 'y':
@@ -107,15 +108,20 @@ def askToGitpull():
         print(Fore.LIGHTMAGENTA_EX + 'No worries, Skipping doing a git pull')
         startAlice()
 
+def prepareAlice():
+    os.chdir(alicePath)
+    subprocess.run(['sudo', 'systemctl', 'stop', 'ProjectAlice'])
+    subprocess.run(['rm', '-f', 'alice.bugreport'])
+    print(Fore.LIGHTCYAN_EX + 'Pre start up tasks completed....')
 
 def gitpull():
     """
     Perform a git pull through submodules to update Alice tolatest files
     :return:
     """
-    os.chdir(alicePath)
-    subprocess.run(['sudo', 'systemctl', 'stop', 'ProjectAlice'])
-    subprocess.run(['rm', '-f', 'alice.bugreport'])
+    #os.chdir(alicePath)
+    #subprocess.run(['sudo', 'systemctl', 'stop', 'ProjectAlice'])
+    #subprocess.run(['rm', '-f', 'alice.bugreport'])
     subprocess.run(['git', 'stash'])
     #git pull --recurse-submodules
     os.chdir('core/webui/public')
